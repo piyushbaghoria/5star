@@ -1,0 +1,21 @@
+// EmailJS Initialize
+(function() {
+    emailjs.init("piyushbaghoria@gmail.com"); // Replace with your EmailJS User ID
+})();
+
+document.getElementById('orderForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var templateParams = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        orderDetails: document.getElementById('orderDetails').value
+    };
+
+    emailjs.send("service_bqyf1ps", "template_wdhxuto", k1rZxgVaoXbnin9qH)
+        .then(function(response) {
+            alert("Order Sent Successfully!");
+        }, function(error) {
+            alert("Failed to send order.");
+        });
+});
